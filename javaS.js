@@ -1,11 +1,15 @@
+var turn;
+var winner;
+var counter = 0;
+
 function startGame(){
-    document.turn="X";
+    turn="X";
     if(Math.random() < 0.5){
-        document.turn = "O";
+        turn = "O";
     }
 
-    document.winner = null;
-    setMessage(document.turn + " gets to start !!")
+    winner = null;
+    setMessage(turn + " gets to start !!")
 }
 
 
@@ -16,11 +20,12 @@ function setMessage(msg){
 
 function nextMove(square){
 
-    if(document.winner != null){
-        setMessage(document.winner + " already won the game.");
+    if(winner != null){
+        setMessage(winner + " already won the game.");
     }
     else if(square.innerText == ""){
-        square.innerText = document.turn; 
+        square.innerText = turn;
+        counter++; 
         switchTurn();
     } else {
         setMessage("That square is already Taken !");
@@ -29,16 +34,19 @@ function nextMove(square){
 
 function switchTurn(){
 
-    if(checkForWinner(document.turn)){
-        setMessage("CNGRATULATIONS, " + document.turn + " YOU WIN !!")
-        document.winner = document.turn;
+    if(checkForWinner(turn)){
+        setMessage("CONGRATULATIONS, " + turn + " YOU WIN !!")
+        winner = turn;
     }
-    else if(document.turn == "X"){
-        document.turn = "O";
-        setMessage("It's " + document.turn + " 's turn !")
+    else if(turn == "X"){
+        turn = "O";
+        setMessage("It's " + turn + " 's turn !")
     }else{
-        document.turn = "X";
-        setMessage("It's " + document.turn + " 's turn !")
+        turn = "X";
+        setMessage("It's " + turn + " 's turn !")
+    }
+    if(counter==9 || checkForWinner(move) == false){
+        setMessage(" DRAW " )
     }
 
 }
