@@ -7,27 +7,30 @@
     <script src="javaS.js"></script>
     <title>Tic Tac Toe</title>
 </head>
-<body onload="startGame();">
+<body>
     <h1>Welcome to my Tic Tac Toe game !</h1>
 
-    <h3><div id="message">Messages will go here !</div></h3>
+    <h3><div id="message">LET;S GO !</div></h3>
     <table border="1">
 		<tr>
-            <td id="s1" class="square" onclick="nextMove(this);"></td>
-            <td id="s2" class="square" onclick="nextMove(this);"></td>
-            <td id="s3" class="square" onclick="nextMove(this);"></td>
+            <td id="1" class="square" onclick="nextMove(this);"></td>
+            <td id="2" class="square" onclick="nextMove(this);"></td>
+            <td id="3" class="square" onclick="nextMove(this);"></td>
         </tr>
         <tr>
-            <td id="s4" class="square" onclick="nextMove(this);"></td>
-            <td id="s5" class="square" onclick="nextMove(this);"></td>
-            <td id="s6" class="square" onclick="nextMove(this);"></td>
+            <td id="4" class="square" onclick="nextMove(this);"></td>
+            <td id="5" class="square" onclick="nextMove(this);"></td>
+            <td id="6" class="square" onclick="nextMove(this);"></td>
         </tr>
         <tr>
-            <td id="s7" class="square" onclick="nextMove(this);"></td>
-            <td id="s8" class="square" onclick="nextMove(this);"></td>
-            <td id="s9" class="square" onclick="nextMove(this);"></td>
+            <td id="7" class="square" onclick="nextMove(this);"></td>
+            <td id="8" class="square" onclick="nextMove(this);"></td>
+            <td id="9" class="square" onclick="nextMove(this);"></td>
         </tr>
 	</table>
+
+    <button class="button1" type="button" onclick="startGame();">START GAME</button>
+    <button class="button2" type="button" onclick="JavaScript : reset();" value="reset">RESET</button>
 
 </body>
 </html>
