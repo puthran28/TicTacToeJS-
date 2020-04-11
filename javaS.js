@@ -1,8 +1,12 @@
+
+
+
 var turn;
 var winner;
 var counter = 0;
-
+var flag=0;
 function startGame(){
+    flag = 1;
     turn="X";
     if(Math.random() < 0.5){
         turn = "O";
@@ -18,8 +22,16 @@ function setMessage(msg){
 
 }
 
-function nextMove(square){
+function reset(){
+    for( var id = 1; id <= 9; id++ )
+	{
+		var square = document.getElementById( id );
+		square.innerHTML = "";
+	}
+}
 
+function nextMove(square){
+    if(flag == 1){
     if(winner != null){
         setMessage(winner + " already won the game.");
     }
@@ -30,13 +42,17 @@ function nextMove(square){
     } else {
         setMessage("That square is already Taken !");
     }
+    }else{
+        setMessage("PRESS START GAME TO BEGIN ;)")
+
+    }
 } 
 
 function switchTurn(){
 
     if(checkForWinner(turn)){
-        setMessage("CONGRATULATIONS, " + turn + " YOU WIN !!")
         winner = turn;
+        alert("CONGRATULATIONS, " + turn + " YOU WIN !!")
     }
     else if(turn == "X"){
         turn = "O";
@@ -60,7 +76,7 @@ function checkRow(a, b, c, move){
 }
 
 function getBox(number){
-    return document.getElementById("s" + number).innerText;
+    return document.getElementById(number).innerText;
 }
 
 function checkForWinner(move){
